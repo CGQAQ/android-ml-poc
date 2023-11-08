@@ -16,7 +16,21 @@ android {
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles("consumer-rules.pro")
+
+        externalNativeBuild {
+            cmake {
+                arguments("-DANDROID_STL=c++_shared")
+            }
+        }
+
     }
+
+    externalNativeBuild {
+        cmake {
+            path = file("../tokenizer/CMakeLists.txt")
+        }
+    }
+
 
     buildTypes {
         release {
@@ -34,12 +48,15 @@ android {
     kotlinOptions {
         jvmTarget = "1.8"
     }
+    buildToolsVersion = "34.0.0"
 }
 
 cargo {
     module  = "./rust"
     libname = "djl"
-    targets = listOf("arm", "x86")
+    targets = listOf("arm64", "x86_64", "x86", "arm")
+    verbose = true
+    prebuiltToolchains = true
     profile = "release"
 }
 
