@@ -1,0 +1,5 @@
+[target.arm-linux-android]
+linker = "/home/cg/Android/Sdk/ndk/26.1.10909125/toolchains/llvm/prebuilt/linux-x86_64/bin/armv7a-linux-androideabi34-clang"
+
+[target.i686-linux-android]
+linker = "/home/cg/Android/Sdk/ndk/26.1.10909125/toolchains/llvm/prebuilt/linux-x86_64/bin/i686-linux-android34-clang"

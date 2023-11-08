@@ -9,6 +9,7 @@ plugins {
 android {
     namespace = "org.unitmesh.tokenizer"
     compileSdk = 34
+    ndkVersion = "26.1.10909125"
 
     defaultConfig {
         minSdk = 26
@@ -37,12 +38,12 @@ android {
 
 cargo {
     module  = "./rust"
-    libname = "tokenizer"
+    libname = "djl"
     targets = listOf("arm", "x86")
+    profile = "release"
 }
 
 dependencies {
-
     implementation("androidx.core:core-ktx:1.9.0")
     implementation("androidx.appcompat:appcompat:1.6.1")
     implementation("com.google.android.material:material:1.10.0")

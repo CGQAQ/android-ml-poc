@@ -728,7 +728,7 @@ pub extern "system" fn Java_ai_djl_huggingface_tokenizers_jni_TokenizersLibrary_
             max_length: truncation_max_length as usize,
             ..Default::default()
         };
-        tokenizer.with_truncation(Some(truncation_params));
+        let _ = tokenizer.with_truncation(Some(truncation_params));
     }
 }
 
@@ -739,7 +739,7 @@ pub extern "system" fn Java_ai_djl_huggingface_tokenizers_jni_TokenizersLibrary_
     handle: jlong,
 ) {
     let tokenizer = cast_handle::<Tokenizer>(handle);
-    tokenizer.with_truncation(None);
+    let _ = tokenizer.with_truncation(None);
 }
 
 fn to_handle<T: 'static>(val: T) -> jlong {

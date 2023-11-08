@@ -37,13 +37,7 @@ android {
 
 dependencies {
     api("io.kinference", "inference-core", "0.2.16")
-//    api("io.kinference", "inference-ort", "0.2.16")
-
-//    implementation("com.microsoft.onnxruntime:onnxruntime:1.16.1")
-    implementation("ai.djl.huggingface:tokenizers:0.23.0")
     implementation("ai.djl.android:onnxruntime:0.23.0")
-//    implementation("ai.djl.android:core:0.23.0")
-
     implementation("androidx.core:core-ktx:1.12.0")
     implementation("androidx.appcompat:appcompat:1.6.1")
     implementation("com.google.android.material:material:1.10.0")
@@ -52,6 +46,10 @@ dependencies {
     implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.6.2")
     implementation("androidx.navigation:navigation-fragment-ktx:2.7.5")
     implementation("androidx.navigation:navigation-ui-ktx:2.7.5")
+
+    // use our own lib
+    implementation(project(mapOf("path" to ":tokenizer")))
+
     testImplementation("junit:junit:4.13.2")
     androidTestImplementation("androidx.test.ext:junit:1.1.5")
     androidTestImplementation("androidx.test.espresso:espresso-core:3.5.1")
